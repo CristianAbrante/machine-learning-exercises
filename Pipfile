@@ -9,6 +9,7 @@ verify_ssl = true
 scikit-learn = "*"
 pandas = "*"
 pathlib = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "2.7"

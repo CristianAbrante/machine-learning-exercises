@@ -20,7 +20,7 @@ def rademacher_complexity(predicted_y):
 
     coincident_samples = 0
     for i in range(n_samples[0]):
-        if predicted_y[i] == rademacher_samples[i]:
+        if predicted_y[i] != rademacher_samples[i]:
             coincident_samples += 1
 
     return coincident_samples / n_samples[0]
@@ -85,7 +85,7 @@ if __name__ == '__main__':
         vc_bounds = np.append(vc_bounds, vc_bound)
         rademacher_complexity_values = np.append(rademacher_complexity_values, rademacher)
 
-    rademacher_over_all_h = 0.5 - np.max(rademacher_complexity_values)
+    rademacher_over_all_h = 0.5 - np.min(rademacher_complexity_values)
     print(rademacher_over_all_h)
 
     for n_tot in range(len(training_errors)):
